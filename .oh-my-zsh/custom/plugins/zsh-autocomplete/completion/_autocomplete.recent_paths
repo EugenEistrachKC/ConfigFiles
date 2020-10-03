@@ -1,0 +1,68 @@
+#autoload
+
+_autocomplete.recent_paths() {
+  local -aU reply
+  local ret=1
+
+  if [[ $_comp_tags != *recent-dirs* ]] && _autocomplete.recent_dirs $words[CURRENT] &&
+      .autocomplete.recent_paths.add recent-dirs 'recent directory' $reply; then
+    _comp_tags+=' recent-dirs'
+    ret=0
+  fi
+
+  [[ ! -v functions[_autocomplete.recent_files] ]] && return ret
+
+  local mopts tmp1; zparseopts -E -a mopts '/=tmp1'
+  [[ -z tmp1 ]] && return ret
+
+  if [[ $_comp_tags != *recent-files* ]] && _autocomplete.recent_files $words[CURRENT] &&
+      .autocomplete.recent_paths.add recent-files 'recent file' $reply; then
+    _comp_tags+=' recent-files'
+    ret=0
+  fi
+
+  return ret
+}
+
+.autocomplete.recent_paths.add() {
+  local tag=$1
+  local group_name=$2
+  shift 2
+
+  local disp prefix file_prefix suffix ret=1
+  local -a display popt
+
+  local max_lines max_matches
+  zstyle -s ":autocomplete:$curcontext" max-lines max_lines || max_lines='50%'
+  (( max_lines = _autocomplete__max_lines($max_lines) ))
+  (( max_matches = compstate[nmatches] + 4 ))
+
+  local word=${~words[CURRENT]:P}
+
+  local path; for path in ${@:P}; do
+    (( compstate[list_lines] >= max_lines || compstate[nmatches] >= max_matches )) &&
+      break
+
+    [[ ! -e $path ]] && continue
+
+    disp=${(D)path}
+    (( $#disp <= 1 )) && continue
+
+    prefix=$path:h
+    [[ $word = ($path|$path:h) || $prefix == ($word:h|$PWD) ]] && continue
+
+    if [[ $path == /* ]]; then
+      path=${path#/}
+      popt=( -P '/' -W '/' )
+    fi
+
+    display=( "$disp" )
+    local _comp_no_ignore=1
+    _description -V $tag expl $group_name
+    compadd "$expl[@]" -d display -fQ $popt - ${(b)path} && ret=0
+  done
+
+  return ret
+}
+
+_autocomplete.recent_paths "$@"

@@ -1,0 +1,9 @@
+#autoload
+
+[[ -z $BUFFER || $compstate[old_list] == keep || $curcontext == history-search:* ]] && return 1
+
+(( CURRENT > 1 && compstate[nmatches] == 0 )) && _autocomplete.history_words
+if _autocomplete.alias_expansions || _autocomplete.requoted ||
+    _autocomplete.unambiguous || _autocomplete.history_lines; then
+  _completer='extras'
+fi
