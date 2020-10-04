@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,7 @@ export ZSH="/Users/eugen/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,7 +84,6 @@ plugins=(
 	bgnotify
 	zsh-syntax-highlighting
 	zsh-autosuggestions
-	zsh-autocomplete
 	web-search
 	autojump
 )
@@ -109,14 +115,29 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="sudo code ~/.zshrc"
 
+# java aliases
 alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8); java -version"
-alias zshconfig="mate ~/.zshrc"
+
+# node aliases
+alias n8="nvm use 8"
+alias n12="nvm use 12"
+
+# custom script aliases
 alias uc="~/Projects/personal/ConfigFiles/update_config.sh"
 alias tssh="~/Projects/personal/ConfigFiles/transfer_ssh_key.sh"
+alias adt="~/Projects/personal/ConfigFiles/create_deployment_tag.sh"
+alias rdt="~/Projects/personal/ConfigFiles/remove_deployment_tag.sh"
 
+# ssh aliases
 alias server="ssh eugen@server.netplays.de"
-
-eval "$(starship init zsh)"
+alias jenkins="ssh eugen.eistrach@konecranes.com@fikc-ecomci01"
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

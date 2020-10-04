@@ -13,5 +13,5 @@ else
     echo Wrong number of arguments
     exit 2
 fi
-#
+
 exit 0
