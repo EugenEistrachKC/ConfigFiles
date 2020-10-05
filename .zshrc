@@ -129,6 +129,7 @@ alias uc="~/Projects/personal/ConfigFiles/update_config.sh"
 alias tssh="~/Projects/personal/ConfigFiles/transfer_ssh_key.sh"
 alias adt="~/Projects/personal/ConfigFiles/create_deployment_tag.sh"
 alias rdt="~/Projects/personal/ConfigFiles/remove_deployment_tag.sh"
+alias issues_since="~/Projects/personal/ConfigFiles/issues-since.sh"
 
 # ssh aliases
 alias server="ssh eugen@server.netplays.de"

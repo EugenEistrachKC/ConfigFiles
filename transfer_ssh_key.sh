@@ -10,7 +10,7 @@ if [ $# -eq 2 ]; then
 elif [ $# -eq 1 ]; then
     cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
 else
-    echo Wrong number of arguments
+    echo "Usage: $0 <remote> [-u]"
     exit 2
 fi
 

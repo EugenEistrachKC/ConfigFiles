@@ -40,7 +40,7 @@ if [ $# -gt 0 ]; then
 
     sudo rm -r $dir
 else
-    echo Wrong number of arguments
+    echo "Usage: $0 <git-tag>"
     exit 1
 fi
 
