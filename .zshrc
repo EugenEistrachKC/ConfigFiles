@@ -116,6 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshconfig="sudo code ~/.zshrc"
+alias hosts="sudo code /etc/hosts"
 
 # java aliases
 alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8); java -version"
@@ -134,6 +135,7 @@ alias issues_since="~/Projects/personal/ConfigFiles/issues-since.sh"
 # ssh aliases
 alias server="ssh eugen@server.netplays.de"
 alias jenkins="ssh eugen.eistrach@konecranes.com@fikc-ecomci01"
+alias logs="ssh knc0005@172.16.250.20"
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
