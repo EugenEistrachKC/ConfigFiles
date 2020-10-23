@@ -39,6 +39,8 @@ for file in ${files[@]}; do
         sudo cp -r "$from" "$to"
     fi
 
+    sudo chown -R eugen .
+
     echo
 done
 
