@@ -74,3 +74,6 @@ fabric.properties
 
 # python virtual env
 venv/
+
+python-scripts/users_to_import.csv
+python-scripts/config.csv

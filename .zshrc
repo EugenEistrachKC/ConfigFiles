@@ -120,9 +120,11 @@ alias hosts="sudo code /etc/hosts"
 
 # java aliases
 alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8); java -version"
+alias j11="export JAVA_HOME=$(/usr/libexec/java_home -v 1.11); java -version"
 
 # node aliases
 alias n8="nvm use 8"
+alias n10="nvm use 10"
 alias n12="nvm use 12"
 
 # custom script aliases
@@ -131,6 +133,8 @@ alias tssh="~/Projects/personal/ConfigFiles/transfer_ssh_key.sh"
 alias adt="~/Projects/personal/ConfigFiles/create_deployment_tag.sh"
 alias rdt="~/Projects/personal/ConfigFiles/remove_deployment_tag.sh"
 alias issues_since="~/Projects/personal/ConfigFiles/issues-since.sh"
+alias hybris="~/Projects/personal/ConfigFiles/start_hybris.sh"
+alias build="~/Projects/personal/ConfigFiles/build_hybris.sh"
 
 # ssh aliases
 alias server="ssh eugen@server.netplays.de"
