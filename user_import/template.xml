@@ -1,0 +1,40 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://konecranes.com/cidm/person">
+    <S:Header>
+        <wsse:Security S:mustUnderstand="1"
+                       xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+            <wsse:UsernameToken>
+                <wsse:Username>__SECUSERNAME__</wsse:Username>
+                <wsse:Password
+                        Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">__SECPASSWORD__</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </S:Header>
+    <S:Body>
+        <per:PersonRequest>
+            <per:HybrisID/>
+            <per:EmailAddress><![CDATA[__EMAIL__]]></per:EmailAddress>
+            <per:Password><![CDATA[__ENCRYPTEDPASSWORD__]]></per:Password>
+            <per:LastName><![CDATA[__LASTNAME__]]></per:LastName>
+            <per:FirstName><![CDATA[__FIRSTNAME__]]></per:FirstName>
+            <per:Salutation><![CDATA[Mr]]></per:Salutation>
+            <per:Accesses>
+                <per:Brand>
+                    <per:BrandCode>__BRAND__</per:BrandCode>
+                    <per:Stores>
+                        <per:Store>
+                            <per:SAPID>__B2BUNIT__</per:SAPID>
+                            <per:ShopCode>__STORE__</per:ShopCode>
+                            <per:Roles>
+                                <per:Role>__ROLE__</per:Role>
+                            </per:Roles>
+                        </per:Store>
+                    </per:Stores>
+                </per:Brand>
+            </per:Accesses>
+            <per:Telephone><![CDATA[513-860-3218 . 5148]]></per:Telephone>
+            <per:Mobile/>
+            <per:SiebelID/>
+            <per:AccountStatus><![CDATA[ACTIVE]]></per:AccountStatus>
+        </per:PersonRequest>
+    </S:Body>
+</S:Envelope>

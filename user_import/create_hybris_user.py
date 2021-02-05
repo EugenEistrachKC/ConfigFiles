@@ -5,16 +5,10 @@ import sys
 import http.client
 import re
 import ssl
-import os
-
-dirname = os.path.dirname(__file__)
-configPath = os.path.join(dirname, 'config.csv')
-templatePath = os.path.join(dirname, 'template.xml')
-usersPath = os.path.join(dirname, 'users_to_import.csv')
 
 def load_environment(env):
     environments = {}
-    with open(configPath) as config_file:
+    with open("config.csv") as config_file:
         reader = csv.DictReader(config_file)
         for row in reader:
             environments[row["env"]] = row
@@ -35,7 +29,7 @@ def load_users(filename):
 
 def load_template():
     try:
-        with open(templatePath) as template_file:
+        with open("template.xml") as template_file:
             return template_file.read()
     except IOError:
         return None
@@ -60,7 +54,7 @@ def import_users(environment, template):
         print("Environment '" + environment + "' does not exist in config")
         exit(3)
 
-    users = load_users(usersPath)
+    users = load_users("users_to_import.csv")
 
     if users is None:
         print("Can not open users_to_import.csv")

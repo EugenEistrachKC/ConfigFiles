@@ -19,7 +19,7 @@ add_tag() {
     sudo git tag $tag >/dev/null
 
     echo "Pushing $orange$tag$reset to remote"
-    git push --quiet --tags >/dev/null
+    sudo git push --quiet --tags >/dev/null
 
     cd ..
 

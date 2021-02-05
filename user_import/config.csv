@@ -1,0 +1,4 @@
+env,url,path,port,sec-username,sec-password,encrypted-user-password
+dev,admin-hybris-dev.konecranes.com,/cidm/personService,443,test,password,JEZEyZx7WiTsiDw41aasLZ3QT5MJ08XWFyaQ3Wk2E9k=
+qa,admin-hybris-qa.konecranes.com,/cidm/personService,443,hybris_prov,xt56f%v4hvskdhFK55v89df#BfgBkdisa3fghh,JEZEyZx7WiTsiDw41aasLZ3QT5MJ08XWFyaQ3Wk2E9k=
+prod,admin-hybris-prod.konecranes.com,/cidm/personService,443,hybris_prov,yu34f##rhvskdhfkG7r33f%gjDg67fG433ffge,YU/hGIUE/ZO58YgVemUStbnuj+1pZl9eDcHq3fTMXos=
