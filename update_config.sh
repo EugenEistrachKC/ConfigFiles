@@ -34,12 +34,12 @@ for file in ${files[@]}; do
 
         echo Removing all .git folders
         sudo rm -rf $(find $to -type d -name .git)
+        sudo chown -R eugen $newTo
 
     else
         sudo cp -r "$from" "$to"
+        sudo chown eugen $to
     fi
-
-    sudo chown -R eugen .
 
     echo
 done

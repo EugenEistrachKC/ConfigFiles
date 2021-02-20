@@ -115,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshconfig="sudo code ~/.zshrc"
+alias zshconfig="code ~/.zshrc"
 alias hosts="sudo code /etc/hosts"
 
 # java aliases
@@ -140,6 +140,10 @@ alias build="~/Projects/personal/ConfigFiles/build_hybris.sh"
 alias server="ssh eugen@server.netplays.de"
 alias jenkins="ssh eugen.eistrach@konecranes.com@fikc-ecomci01"
 alias logs="ssh knc0005@172.16.250.20"
+alias q1="ssh knc0005@172.16.250.13"
+alias q2="ssh knc0005@172.16.250.14"
+alias q3="ssh knc0005@172.16.250.15"
+alias deployments="ssh knc0005@172.16.250.9"
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
